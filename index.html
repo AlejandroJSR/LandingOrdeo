@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ordeo — El sistema operativo de tu salón</title>
+<meta name="description" content="Pedidos, mesas, inventario y finanzas en un solo panel, pensado para el mostrador de un restaurante o bar, no para una oficina de sistemas." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,560;9..144,640&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand">Ordeo</a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#producto">Producto</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <a href="#demo" class="btn btn-primary btn-sm">Solicitar demo</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ======================= HERO ======================= -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Software de operación para restaurantes y bares</p>
+          <h1>El sistema operativo<br>de tu salón, de la<br><em>mesa</em> a la <em>caja</em>.</h1>
+          <p class="hero-sub">Pedidos, mesas, inventario y finanzas en un solo panel — pensado para el mostrador de un local real, no para una oficina de sistemas.</p>
+          <div class="hero-ctas">
+            <a href="#demo" class="btn btn-primary">Solicitar demo</a>
+            <a href="#roadmap" class="btn btn-ghost">Ver el roadmap →</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="floorplan" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="408" height="328" rx="18" class="fp-room" />
+            <line x1="6" y1="118" x2="180" y2="118" class="fp-wall" />
+            <line x1="180" y1="6" x2="180" y2="118" class="fp-wall" />
+
+            <rect x="34" y="40" width="72" height="46" rx="8" class="fp-table" />
+            <rect x="132" y="40" width="34" height="34" rx="17" class="fp-table" />
+            <rect x="34" y="150" width="60" height="60" rx="10" class="fp-table fp-table--live" />
+            <rect x="118" y="160" width="34" height="34" rx="17" class="fp-table" />
+            <rect x="34" y="248" width="72" height="46" rx="8" class="fp-table" />
+            <rect x="220" y="40" width="60" height="60" rx="10" class="fp-table" />
+            <rect x="310" y="40" width="72" height="46" rx="8" class="fp-table fp-table--live" />
+            <rect x="220" y="150" width="34" height="34" rx="17" class="fp-table" />
+            <rect x="290" y="150" width="92" height="46" rx="8" class="fp-table" />
+            <rect x="220" y="248" width="72" height="46" rx="8" class="fp-table" />
+            <rect x="330" y="248" width="52" height="52" rx="10" class="fp-table fp-table--live" />
+          </svg>
+
+          <div class="ticket ticket-1">
+            <div class="ticket-row">
+              <span class="ticket-dot"></span>
+              <span class="ticket-title">Mesa 7 · Ocupada</span>
+            </div>
+            <div class="ticket-mono">2× Margarita Originale</div>
+            <div class="ticket-mono">1× Calzone Napolitano</div>
+            <div class="ticket-total">Total <b>$28.480</b></div>
+          </div>
+
+          <div class="ticket ticket-2">
+            <div class="ticket-row">
+              <span class="ticket-title">Cierre de turno</span>
+            </div>
+            <div class="ticket-total ticket-total--big">$142.300</div>
+            <div class="ticket-caption">Efectivo · Transferencia · QR</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PROOF STRIP ======================= -->
+    <section class="proof">
+      <div class="wrap proof-inner">
+        <p class="proof-line">En uso real, todos los días, en locales de comida en <b>Argentina</b> y <b>Chile</b>.</p>
+        <div class="proof-stats">
+          <div class="proof-stat"><span class="proof-num">6</span><span class="proof-label">módulos en producción</span></div>
+          <div class="proof-stat"><span class="proof-num">2</span><span class="proof-label">países</span></div>
+          <div class="proof-stat"><span class="proof-num">100%</span><span class="proof-label">datos en tiempo real</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PROBLEMA ======================= -->
+    <section class="problema">
+      <div class="wrap problema-inner">
+        <p class="section-eyebrow">El problema</p>
+        <h2>La mayoría de los locales operan con tres sistemas que no se hablan entre sí: un grupo de WhatsApp, una libreta de pedidos y una planilla que alguien actualiza a fin de mes.</h2>
+        <p class="problema-sub">Para cuando el dueño ve los números, el turno ya terminó — y ya es tarde para hacer algo con esa información.</p>
+      </div>
+    </section>
+
+    <!-- ======================= PRODUCTO / MÓDULOS ======================= -->
+    <section id="producto" class="modulos">
+      <div class="wrap">
+        <p class="section-eyebrow">Un panel, seis módulos</p>
+        <h2 class="section-title">Todo lo que pasa en el salón, en un solo lugar.</h2>
+
+        <div class="modulos-grid">
+
+          <article class="modulo-card">
+            <div class="modulo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 3h12l1 5H5l1-5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5 8v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Pedidos</h3>
+            <p>Cargá un pedido en segundos: menú con búsqueda, extras por producto, promos armadas por combos, y comanda a cocina automática apenas se guarda.</p>
+          </article>
+
+          <article class="modulo-card">
+            <div class="modulo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8.5" r="1.6" fill="currentColor"/><circle cx="16" cy="8.5" r="1.6" fill="currentColor"/><rect x="6.5" y="13.5" width="4.5" height="4.5" rx="0.8" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13.5" width="4.5" height="4.5" rx="0.8" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <h3>Mesas</h3>
+            <p>Diagrama visual del salón: arrastrá, redimensioná y girá cada mesa. Cerrá la cuenta eligiendo el método de pago en un solo paso, sin planillas aparte.</p>
+          </article>
+
+          <article class="modulo-card">
+            <div class="modulo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5V5a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v14.5" stroke="currentColor" stroke-width="1.6"/><path d="M6 21a2 2 0 0 1-2-2h14" stroke="currentColor" stroke-width="1.6"/><path d="M8 7h6M8 10.5h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Menú</h3>
+            <p>Categorías, productos, precios e imágenes editables al toque — lo que cambiás acá se refleja al instante en el panel y en el pedido online del cliente.</p>
+          </article>
+
+          <article class="modulo-card">
+            <div class="modulo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Recetas &amp; inventario</h3>
+            <p>Cada producto se descuenta de stock por receta real (ingredientes y cantidades), en una transacción atómica — sin overselling cuando falta un insumo.</p>
+          </article>
+
+          <article class="modulo-card">
+            <div class="modulo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <h3>Proveedores</h3>
+            <p>Facturas con vencimientos, cuenta corriente por proveedor y el pago de una factura se refleja solo en Finanzas — nada de cargarlo dos veces.</p>
+          </article>
+
+          <article class="modulo-card">
+            <div class="modulo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 3 6-7 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Finanzas</h3>
+            <p>Caja de turno, ventas por método de pago y reporte de ingresos/egresos del día — la misma foto que vas a necesitar el día que alguien te pregunte "¿cómo venimos?".</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CÓMO FUNCIONA ======================= -->
+    <section id="como-funciona" class="como-funciona">
+      <div class="wrap">
+        <p class="section-eyebrow">Cómo funciona</p>
+        <h2 class="section-title">De la mesa a la caja, sin planillas en el medio.</h2>
+
+        <ol class="pasos">
+          <li class="paso">
+            <span class="paso-num">01</span>
+            <div>
+              <h3>Se carga el pedido</h3>
+              <p>Desde el mostrador o directo desde la mesa — el mozo asigna la mesa primero, no como último paso perdido en un formulario.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="paso-num">02</span>
+            <div>
+              <h3>Cocina lo recibe solo</h3>
+              <p>La comanda se imprime automáticamente apenas se guarda el pedido, sin que nadie tenga que avisar a viva voz.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="paso-num">03</span>
+            <div>
+              <h3>Se cierra la mesa</h3>
+              <p>El cliente pide la cuenta, dice cómo paga, y se cierra en un solo paso — el método de pago queda registrado, no adivinado después.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="paso-num">04</span>
+            <div>
+              <h3>Los números ya están</h3>
+              <p>Ventas, stock e ingresos/egresos del turno quedan actualizados solos — Finanzas no es un cierre de mes, es lo que ya pasó hoy.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================= ROADMAP ======================= -->
+    <section id="roadmap" class="roadmap">
+      <div class="wrap">
+        <p class="section-eyebrow">Roadmap</p>
+        <h2 class="section-title">Qué hay hoy, y hacia dónde va.</h2>
+        <p class="roadmap-sub">Sin vueltas: esto es en qué estado real está cada parte, no una lista de promesas.</p>
+
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-marker tl-marker--done"><span class="tl-dot"></span></div>
+            <div class="tl-content">
+              <span class="tl-chip tl-chip--done">Hecho — en uso real</span>
+              <h3>Los seis módulos operativos</h3>
+              <p>Pedidos, Mesas, Menú, Recetas/Inventario, Proveedores y Finanzas, corriendo todos los días en locales reales. Reglas de seguridad de datos por rol y sección ya implementadas.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-marker tl-marker--now"><span class="tl-dot"></span></div>
+            <div class="tl-content">
+              <span class="tl-chip tl-chip--now">En curso</span>
+              <h3>Arquitectura multi-tenant real</h3>
+              <p>Pasar de "un proyecto por negocio" a una base de datos compartida con aislamiento real entre negocios — la base para poder sumar clientes nuevos sin desplegar infraestructura a mano.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-marker tl-marker--next"><span class="tl-dot"></span></div>
+            <div class="tl-content">
+              <span class="tl-chip tl-chip--next">Próximo</span>
+              <h3>Alta de un negocio sin intervención manual</h3>
+              <p>Que un local nuevo pueda darse de alta y empezar a operar solo, sin que alguien tenga que crear un proyecto de infraestructura para cada cliente.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-marker tl-marker--later"><span class="tl-dot"></span></div>
+            <div class="tl-content">
+              <span class="tl-chip tl-chip--later">Más adelante</span>
+              <h3>Panel para dueños de varios locales</h3>
+              <p>Métricas comparadas entre sucursales, facturación centralizada, y una app liviana para mozos pensada para pantallas más chicas que una tablet.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= DEMO ======================= -->
+    <section id="demo" class="demo">
+      <div class="wrap demo-grid">
+        <div class="demo-copy">
+          <p class="section-eyebrow">Solicitar demo</p>
+          <h2>¿Tenés un restaurante o bar y querés verlo funcionando?</h2>
+          <p>Una demo dura 20 minutos y se hace sobre datos de un local real, no una presentación armada. Vas a ver:</p>
+          <ul class="demo-list">
+            <li>Cómo se carga un pedido desde el mostrador y desde una mesa.</li>
+            <li>El diagrama del salón y el cierre de cuenta con método de pago.</li>
+            <li>Cómo se descuenta el stock por receta, ingrediente por ingrediente.</li>
+            <li>El panel de Finanzas con los números del día, no del mes pasado.</li>
+          </ul>
+        </div>
+
+        <form class="demo-form" id="demo-form" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="negocio">Nombre del negocio</label>
+            <input type="text" id="negocio" name="negocio" required autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono <span class="opt">(opcional)</span></label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" />
+          </div>
+          <div class="field">
+            <label for="mensaje">Contanos un poco de tu local <span class="opt">(opcional)</span></label>
+            <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
+          <p class="form-note" id="form-note">Se abre tu cliente de correo con la solicitud lista para enviar a <b>ordeoapp@gmail.com</b>.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="brand brand--footer">Ordeo</p>
+        <p class="footer-tagline">El sistema operativo de tu salón.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:ordeoapp@gmail.com">ordeoapp@gmail.com</a>
+        <a href="#demo">Solicitar demo</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© <span id="year"></span> Ordeo. Hecho en Argentina y Chile.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
