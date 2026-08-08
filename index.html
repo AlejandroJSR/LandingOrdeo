@@ -7,13 +7,11 @@
 <meta name="description" content="Pedidos, mesas, inventario y finanzas en un solo panel, pensado para el mostrador de un restaurante o bar, no para una oficina de sistemas." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,560;9..144,640&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -31,53 +29,26 @@
 
     <!-- ======================= HERO ======================= -->
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Software de operación para restaurantes y bares</p>
-          <h1>El sistema operativo<br>de tu salón, de la<br><em>mesa</em> a la <em>caja</em>.</h1>
-          <p class="hero-sub">Pedidos, mesas, inventario y finanzas en un solo panel — pensado para el mostrador de un local real, no para una oficina de sistemas.</p>
-          <div class="hero-ctas">
-            <a href="#demo" class="btn btn-primary">Solicitar demo</a>
-            <a href="#roadmap" class="btn btn-ghost">Ver el roadmap →</a>
-          </div>
+      <div class="wrap hero-center">
+        <p class="eyebrow">Software de operación para restaurantes y bares</p>
+        <h1>El sistema que tu<br>salón se merece.</h1>
+        <p class="hero-sub">Pedidos, mesas, inventario y finanzas en un solo panel — pensado para el mostrador de un local real, no para una oficina de sistemas.</p>
+        <div class="hero-ctas">
+          <a href="#demo" class="btn btn-primary btn-lg">Solicitar demo</a>
+          <a href="#roadmap" class="btn btn-ghost btn-lg">Ver el roadmap →</a>
         </div>
+      </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <svg class="floorplan" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="6" width="408" height="328" rx="18" class="fp-room" />
-            <line x1="6" y1="118" x2="180" y2="118" class="fp-wall" />
-            <line x1="180" y1="6" x2="180" y2="118" class="fp-wall" />
-
-            <rect x="34" y="40" width="72" height="46" rx="8" class="fp-table" />
-            <rect x="132" y="40" width="34" height="34" rx="17" class="fp-table" />
-            <rect x="34" y="150" width="60" height="60" rx="10" class="fp-table fp-table--live" />
-            <rect x="118" y="160" width="34" height="34" rx="17" class="fp-table" />
-            <rect x="34" y="248" width="72" height="46" rx="8" class="fp-table" />
-            <rect x="220" y="40" width="60" height="60" rx="10" class="fp-table" />
-            <rect x="310" y="40" width="72" height="46" rx="8" class="fp-table fp-table--live" />
-            <rect x="220" y="150" width="34" height="34" rx="17" class="fp-table" />
-            <rect x="290" y="150" width="92" height="46" rx="8" class="fp-table" />
-            <rect x="220" y="248" width="72" height="46" rx="8" class="fp-table" />
-            <rect x="330" y="248" width="52" height="52" rx="10" class="fp-table fp-table--live" />
-          </svg>
-
-          <div class="ticket ticket-1">
-            <div class="ticket-row">
-              <span class="ticket-dot"></span>
-              <span class="ticket-title">Mesa 7 · Ocupada</span>
-            </div>
-            <div class="ticket-mono">2× Margarita Originale</div>
-            <div class="ticket-mono">1× Calzone Napolitano</div>
-            <div class="ticket-total">Total <b>$28.480</b></div>
+      <!-- Captura real del panel (modal de Nuevo pedido) enmarcada tipo
+           ventana de navegador. -->
+      <div class="wrap">
+        <div class="device">
+          <div class="device-bar">
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
           </div>
-
-          <div class="ticket ticket-2">
-            <div class="ticket-row">
-              <span class="ticket-title">Cierre de turno</span>
-            </div>
-            <div class="ticket-total ticket-total--big">$142.300</div>
-            <div class="ticket-caption">Efectivo · Transferencia · QR</div>
-          </div>
+          <img src="assets/modal.png" alt="Panel de Ordeo: carga de un pedido nuevo, con el menú y el carrito con el total en tiempo real." class="device-img" />
         </div>
       </div>
     </section>
@@ -159,6 +130,40 @@
             <p>Caja de turno, ventas por método de pago y reporte de ingresos/egresos del día — la misma foto que vas a necesitar el día que alguien te pregunte "¿cómo venimos?".</p>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CAPTURAS REALES ======================= -->
+    <section class="showcase">
+      <div class="wrap">
+        <p class="section-eyebrow">Así se ve de verdad</p>
+        <h2 class="section-title">Capturas del panel, no una maqueta armada para la web.</h2>
+
+        <div class="showcase-grid">
+          <figure class="showcase-item">
+            <div class="device device--sm">
+              <div class="device-bar"><span class="device-dot"></span><span class="device-dot"></span><span class="device-dot"></span></div>
+              <img src="assets/pedidos.png" alt="Lista de pedidos del día, con estado, método de pago y total de cada uno." class="device-img" />
+            </div>
+            <figcaption>Pedidos del turno, con estado y total de cada uno.</figcaption>
+          </figure>
+
+          <figure class="showcase-item">
+            <div class="device device--sm">
+              <div class="device-bar"><span class="device-dot"></span><span class="device-dot"></span><span class="device-dot"></span></div>
+              <img src="assets/mesas1.png" alt="Diagrama visual del salón, con mesas libres y ocupadas." class="device-img" />
+            </div>
+            <figcaption>El diagrama del salón: libres y ocupadas, de un vistazo.</figcaption>
+          </figure>
+
+          <figure class="showcase-item">
+            <div class="device device--sm">
+              <div class="device-bar"><span class="device-dot"></span><span class="device-dot"></span><span class="device-dot"></span></div>
+              <img src="assets/recetas.png" alt="Panel de ingredientes con stock, mínimo y estado por ingrediente." class="device-img" />
+            </div>
+            <figcaption>Stock por ingrediente, con alerta antes de que falte.</figcaption>
+          </figure>
         </div>
       </div>
     </section>

@@ -32,6 +32,8 @@ Cuando quieras algo más prolijo (que llegue un mail solo, sin que el visitante 
 - **Formspree** (gratis para volumen bajo): creás un formulario en [formspree.io](https://formspree.io), y cambiás el `<form>` de `index.html` para que apunte a esa URL en vez de usar el JS de `mailto`.
 - **Función serverless de Vercel + Resend**: requiere convertir esto en un proyecto con `api/` (o migrar a Next.js) y una cuenta de [resend.com](https://resend.com) para mandar el mail desde el servidor.
 
-## Reemplazar las capturas
+## Capturas del producto
 
-Las imágenes del salón/tickets del hero son ilustraciones (SVG + HTML), no capturas reales — pensadas para no depender de archivos hasta tener las capturas de la app. Cuando las tengas, lo más simple es reemplazar la sección `.hero-visual` de `index.html` por un `<img>` a la captura, o agregarlas en la sección de Módulos como respaldo visual de cada card.
+Las imágenes reales están en `assets/` (`modal.png` en el hero; `pedidos.png`, `mesas1.png` y `recetas.png` en la sección "Así se ve de verdad"). Son de una sucursal con marca en naranja, distinta al dorado de esta landing — es intencional, son capturas reales, no se retocan para que combinen con la web.
+
+Para cambiar o sumar una captura: agregá el archivo a `assets/`, y en `index.html` buscá el bloque `.device` correspondiente y actualizá el `src` del `<img>`.
