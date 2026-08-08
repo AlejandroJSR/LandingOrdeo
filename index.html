@@ -19,7 +19,7 @@
       <nav class="nav" aria-label="Navegación principal">
         <a href="#producto">Producto</a>
         <a href="#como-funciona">Cómo funciona</a>
-        <a href="#roadmap">Roadmap</a>
+        <a href="#proyecto">El proyecto</a>
       </nav>
       <a href="#demo" class="btn btn-primary btn-sm">Solicitar demo</a>
     </div>
@@ -30,25 +30,41 @@
     <!-- ======================= HERO ======================= -->
     <section class="hero">
       <div class="wrap hero-center">
+        <div class="view-toggle" role="tablist" aria-label="Elegí qué ver">
+          <button type="button" class="view-toggle-btn is-active" data-view-btn="producto" role="tab" aria-selected="true">Ver el producto</button>
+          <button type="button" class="view-toggle-btn" data-view-btn="proyecto" role="tab" aria-selected="false">El proyecto</button>
+        </div>
         <p class="eyebrow">Software de operación para restaurantes y bares</p>
         <h1>El sistema que tu<br>salón se merece.</h1>
         <p class="hero-sub">Pedidos, mesas, inventario y finanzas en un solo panel — pensado para el mostrador de un local real, no para una oficina de sistemas.</p>
         <div class="hero-ctas">
           <a href="#demo" class="btn btn-primary btn-lg">Solicitar demo</a>
-          <a href="#roadmap" class="btn btn-ghost btn-lg">Ver el roadmap →</a>
         </div>
       </div>
 
-      <!-- Captura real del panel (modal de Nuevo pedido) enmarcada tipo
+      <!-- Capturas reales del panel, rotando en el mismo marco tipo
            ventana de navegador. -->
       <div class="wrap">
-        <div class="device">
-          <div class="device-bar">
-            <span class="device-dot"></span>
-            <span class="device-dot"></span>
-            <span class="device-dot"></span>
+        <div class="hero-device-wrap">
+          <div class="device device--hero">
+            <div class="device-bar">
+              <span class="device-dot"></span>
+              <span class="device-dot"></span>
+              <span class="device-dot"></span>
+            </div>
+            <div class="device-carousel" id="hero-carousel">
+              <img src="assets/modal.png" alt="Panel de Ordeo: carga de un pedido nuevo, con el menú y el carrito con el total en tiempo real." class="device-img is-active" />
+              <img src="assets/pedidos.png" alt="Lista de pedidos del día, con estado, método de pago y total de cada uno." class="device-img" />
+              <img src="assets/mesas1.png" alt="Diagrama visual del salón, con mesas libres y ocupadas." class="device-img" />
+              <img src="assets/recetas.png" alt="Panel de ingredientes con stock, mínimo y estado por ingrediente." class="device-img" />
+            </div>
           </div>
-          <img src="assets/modal.png" alt="Panel de Ordeo: carga de un pedido nuevo, con el menú y el carrito con el total en tiempo real." class="device-img" />
+          <div class="device-dots" role="tablist" aria-label="Capturas del panel">
+            <button type="button" class="device-dot-btn is-active" data-slide-btn="0" role="tab" aria-selected="true" aria-label="Captura 1 de 4"></button>
+            <button type="button" class="device-dot-btn" data-slide-btn="1" role="tab" aria-selected="false" aria-label="Captura 2 de 4"></button>
+            <button type="button" class="device-dot-btn" data-slide-btn="2" role="tab" aria-selected="false" aria-label="Captura 3 de 4"></button>
+            <button type="button" class="device-dot-btn" data-slide-btn="3" role="tab" aria-selected="false" aria-label="Captura 4 de 4"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -66,7 +82,7 @@
     </section>
 
     <!-- ======================= PROBLEMA ======================= -->
-    <section class="problema">
+    <section class="problema" data-view="producto">
       <div class="wrap problema-inner">
         <p class="section-eyebrow">El problema</p>
         <h2>La mayoría de los locales operan con tres sistemas que no se hablan entre sí: un grupo de WhatsApp, una libreta de pedidos y una planilla que alguien actualiza a fin de mes.</h2>
@@ -75,7 +91,7 @@
     </section>
 
     <!-- ======================= PRODUCTO / MÓDULOS ======================= -->
-    <section id="producto" class="modulos">
+    <section id="producto" class="modulos" data-view="producto">
       <div class="wrap">
         <p class="section-eyebrow">Un panel, seis módulos</p>
         <h2 class="section-title">Todo lo que pasa en el salón, en un solo lugar.</h2>
@@ -135,7 +151,7 @@
     </section>
 
     <!-- ======================= CAPTURAS REALES ======================= -->
-    <section class="showcase">
+    <section class="showcase" data-view="producto">
       <div class="wrap">
         <p class="section-eyebrow">Así se ve de verdad</p>
         <h2 class="section-title">Capturas del panel, no una maqueta armada para la web.</h2>
@@ -165,11 +181,22 @@
             <figcaption>Stock por ingrediente, con alerta antes de que falte.</figcaption>
           </figure>
         </div>
+
+        <div class="phone-showcase">
+          <div class="phone-showcase-copy">
+            <p class="section-eyebrow">También desde el celular</p>
+            <h3>Cargar un pedido o revisar una mesa no espera a que haya una tablet libre.</h3>
+            <p>El mismo panel, sin recortar funciones, corriendo en el celular del mozo.</p>
+          </div>
+          <div class="phone-frame">
+            <img src="assets/mobile.png" alt="Diagrama de mesas de Ordeo visto desde un celular, con la barra de navegación inferior de Pedidos, Mesas, Finanzas y Menú." class="phone-frame-img" />
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ======================= CÓMO FUNCIONA ======================= -->
-    <section id="como-funciona" class="como-funciona">
+    <section id="como-funciona" class="como-funciona" data-view="producto">
       <div class="wrap">
         <p class="section-eyebrow">Cómo funciona</p>
         <h2 class="section-title">De la mesa a la caja, sin planillas en el medio.</h2>
@@ -207,8 +234,17 @@
       </div>
     </section>
 
+    <!-- ======================= EL PROYECTO (visión) ======================= -->
+    <section id="proyecto" class="vision" data-view="proyecto">
+      <div class="wrap vision-inner">
+        <p class="section-eyebrow">El proyecto</p>
+        <h2>Hoy: el sistema operativo de un salón. Mañana: la base de datos de un crédito embebido para el sector.</h2>
+        <p class="vision-sub">Ordeo ya corre todos los días en restaurantes y bares reales — eso genera un historial real de ventas, consistencia y flujo de caja. Ese dato es la base para construir, más adelante, un modelo de scoring que permita ofrecer capital de trabajo a un sector que hoy no tiene garantías tradicionales.</p>
+      </div>
+    </section>
+
     <!-- ======================= ROADMAP ======================= -->
-    <section id="roadmap" class="roadmap">
+    <section id="roadmap" class="roadmap" data-view="proyecto">
       <div class="wrap">
         <p class="section-eyebrow">Roadmap</p>
         <h2 class="section-title">Qué hay hoy, y hacia dónde va.</h2>
@@ -261,12 +297,21 @@
             </div>
           </div>
 
+          <div class="tl-item">
+            <div class="tl-marker tl-marker--later"><span class="tl-dot"></span></div>
+            <div class="tl-content">
+              <span class="tl-chip tl-chip--later">Más adelante</span>
+              <h3>Capital de trabajo para restaurantes</h3>
+              <p>Cada restaurante que opera en Ordeo genera un historial real de ventas, consistencia y flujo de caja. Ese dato es la base para un modelo de scoring que permita ofrecer adelantos de capital de trabajo, repagados como un porcentaje de las ventas diarias procesadas — sin depender de garantías tradicionales que la mayoría de estos negocios no tiene.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- ======================= DEMO ======================= -->
-    <section id="demo" class="demo">
+    <section id="demo" class="demo" data-view="producto">
       <div class="wrap demo-grid">
         <div class="demo-copy">
           <p class="section-eyebrow">Solicitar demo</p>
@@ -318,7 +363,7 @@
       <div class="footer-links">
         <a href="mailto:ordeoapp@gmail.com">ordeoapp@gmail.com</a>
         <a href="#demo">Solicitar demo</a>
-        <a href="#roadmap">Roadmap</a>
+        <a href="#proyecto">El proyecto</a>
       </div>
     </div>
     <div class="wrap footer-bottom">

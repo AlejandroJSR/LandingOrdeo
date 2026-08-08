@@ -137,6 +137,36 @@ a { color: inherit; }
 .nav a:hover { color: var(--text); }
 @media (max-width: 760px) { .nav { display: none; } }
 
+/* ---------------- View toggle (Producto / El proyecto) ---------------- */
+.view-toggle {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 26px;
+}
+.view-toggle-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.view-toggle-btn:hover { color: var(--text); }
+.view-toggle-btn.is-active { background: var(--accent); color: var(--on-accent); }
+
+/* Qué se muestra según la vista activa — por defecto, Producto.
+   El body recibe la clase .view-proyecto al tocar "El proyecto". */
+body:not(.view-proyecto) [data-view="proyecto"] { display: none; }
+body.view-proyecto [data-view="producto"] { display: none; }
+
 /* ---------------- Hero ---------------- */
 .hero { padding: 80px 0 0; text-align: center; }
 .hero-center { max-width: 760px; margin: 0 auto; }
@@ -170,6 +200,16 @@ a { color: inherit; }
 }
 .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
 
+/* Entrada escalonada al cargar — respeta prefers-reduced-motion via la
+   regla global que ya achica animation-duration a ~0. */
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.hero-center .view-toggle { animation: fade-up 0.5s ease both; }
+.hero-center .eyebrow { animation: fade-up 0.5s ease 0.08s both; }
+.hero h1 { animation: fade-up 0.5s ease 0.16s both; }
+.hero-sub { animation: fade-up 0.5s ease 0.24s both; }
+.hero-ctas { animation: fade-up 0.5s ease 0.32s both; }
+.hero .device { animation: fade-up 0.6s ease 0.4s both; }
+
 /* ---------------- Device frame (capturas reales) ---------------- */
 .device {
   border-radius: var(--radius);
@@ -193,6 +233,27 @@ a { color: inherit; }
 @media (max-width: 760px) {
   .device { margin-bottom: 56px; }
 }
+.device--hero { margin-bottom: 0; }
+
+/* Carrusel de capturas del hero: las imágenes se apilan y solo la
+   .is-active se muestra — evita el salto de layout de un slider real. */
+.hero-device-wrap { max-width: 980px; margin: 0 auto 90px; }
+@media (max-width: 760px) { .hero-device-wrap { margin-bottom: 56px; } }
+.device-carousel { position: relative; }
+.device-carousel .device-img { display: none; }
+.device-carousel .device-img.is-active { display: block; }
+.device-dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
+.device-dot-btn {
+  width: 8px; height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.device-dot-btn:hover { background: var(--text-soft); }
+.device-dot-btn.is-active { background: var(--accent); transform: scale(1.3); }
 
 /* ---------------- Proof strip ---------------- */
 .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
@@ -269,6 +330,30 @@ a { color: inherit; }
 .showcase-item { margin: 0; }
 .showcase-item figcaption { margin-top: 14px; font-size: 0.92rem; color: var(--text-soft); text-align: center; }
 
+.phone-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  margin-top: 72px;
+}
+.phone-showcase-copy { max-width: 320px; }
+.phone-showcase-copy h3 { font-size: 1.28rem; font-weight: 700; margin: 10px 0 10px; line-height: 1.3; }
+.phone-showcase-copy p { margin: 0; color: var(--text-soft); font-size: 0.96rem; }
+.phone-frame {
+  flex-shrink: 0;
+  width: 220px;
+  border-radius: 30px;
+  border: 6px solid var(--surface-raised);
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: var(--shadow-lg);
+}
+.phone-frame-img { display: block; width: 100%; height: auto; }
+@media (max-width: 760px) {
+  .phone-showcase { flex-direction: column; text-align: center; gap: 32px; }
+}
+
 /* ---------------- Cómo funciona ---------------- */
 .como-funciona { padding: 20px 0 108px; }
 .pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
@@ -276,6 +361,12 @@ a { color: inherit; }
 .paso-num { font-family: var(--font-data); font-size: 2.2rem; color: var(--line); font-weight: 700; line-height: 1; }
 .paso h3 { font-size: 1.1rem; margin-bottom: 6px; font-weight: 700; }
 .paso p { margin: 0; color: var(--text-soft); font-size: 0.96rem; max-width: 62ch; }
+
+/* ---------------- Visión (El proyecto) ---------------- */
+.vision { padding: 100px 0 20px; }
+.vision-inner { max-width: 800px; }
+.vision h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); line-height: 1.3; font-weight: 700; }
+.vision-sub { margin-top: 20px; color: var(--text-soft); font-size: 1.08rem; }
 
 /* ---------------- Roadmap timeline ---------------- */
 .roadmap { padding: 20px 0 108px; }
