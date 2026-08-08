@@ -95,7 +95,7 @@ form.addEventListener('submit', (e) => {
   const mensaje = form.mensaje.value.trim();
 
   if (!nombre || !negocio || !email) {
-    note.textContent = 'Completá nombre, negocio y email para continuar.';
+    note.textContent = 'Completa nombre, negocio y email para continuar.';
     note.classList.remove('form-note--sent');
     return;
   }
