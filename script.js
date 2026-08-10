@@ -17,7 +17,12 @@ function setView(view) {
 }
 
 viewButtons.forEach((btn) => {
-  btn.addEventListener('click', () => setView(btn.dataset.viewBtn));
+  btn.addEventListener('click', () => {
+    const view = btn.dataset.viewBtn;
+    setView(view);
+    const target = document.getElementById(view === 'proyecto' ? 'proyecto' : 'top');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 });
 
 // Carrusel de capturas del hero: rota sola cada 4.5s, se puede saltar con
