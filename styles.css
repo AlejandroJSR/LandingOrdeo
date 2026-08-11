@@ -325,23 +325,21 @@ body.view-proyecto [data-view="producto"] { display: none; }
 
 /* ---------------- Showcase (capturas reales) ---------------- */
 .showcase { padding: 20px 0 108px; background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-@media (max-width: 860px) { .showcase-grid { grid-template-columns: 1fr; } }
-.showcase-item { margin: 0; }
-.showcase-item figcaption { margin-top: 14px; font-size: 0.92rem; color: var(--text-soft); text-align: center; }
 
+.phone-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 24px;
+}
 .phone-showcase {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 56px;
-  margin-top: 72px;
+  text-align: center;
+  gap: 20px;
 }
-.phone-showcase-copy { max-width: 320px; }
+.phone-showcase-copy { max-width: 340px; }
 .phone-showcase-copy h3 { font-size: 1.28rem; font-weight: 700; margin: 10px 0 10px; line-height: 1.3; }
 .phone-showcase-copy p { margin: 0; color: var(--text-soft); font-size: 0.96rem; }
 .phone-frame {
@@ -355,7 +353,7 @@ body.view-proyecto [data-view="producto"] { display: none; }
 }
 .phone-frame-img { display: block; width: 100%; height: auto; }
 @media (max-width: 760px) {
-  .phone-showcase { flex-direction: column; text-align: center; gap: 32px; }
+  .phone-showcase-grid { grid-template-columns: 1fr; gap: 56px; }
 }
 
 /* ---------------- Cómo funciona ---------------- */
