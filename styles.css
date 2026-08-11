@@ -339,7 +339,7 @@ body.view-proyecto [data-view="producto"] { display: none; }
   text-align: center;
   gap: 20px;
 }
-.phone-showcase-copy { max-width: 340px; }
+.phone-showcase-copy { max-width: 340px; min-height: 148px; display: flex; flex-direction: column; justify-content: center; }
 .phone-showcase-copy h3 { font-size: 1.28rem; font-weight: 700; margin: 10px 0 10px; line-height: 1.3; }
 .phone-showcase-copy p { margin: 0; color: var(--text-soft); font-size: 0.96rem; }
 .phone-frame {
