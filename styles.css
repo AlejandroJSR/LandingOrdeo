@@ -1,40 +1,41 @@
 /* =========================================================================
    Ordeo — landing page
-   Identidad propia, no plantilla genérica de SaaS: negro carbón real, ámbar
-   llama como único acento dominante (fuego de cocina / urgencia de comanda),
-   verde lima solo para estados positivos (pagado, disponible) — nunca como
-   color de fondo o de marca. Esquinas cuadradas (4-6px), no pills.
-   Tema único, sin variante clara: es una identidad de marca, no un ajuste
-   de accesibilidad de sistema.
+   Identidad propia construida sobre "el pulso": una señal de datos en
+   tiempo real que conecta las dos mitades del pitch — para la operación
+   diaria es el local funcionando ahora mismo, para el crédito es la señal
+   de salud del negocio que un prestamista mira antes de dar capital.
+   Dos acentos con roles fijos: brasa (energía operativa, cocina) y señal
+   (verificación, confianza, crédito) — nunca intercambiables. Esquinas
+   cuadradas (4-6px), no pills. Tema único, sin variante clara: es una
+   identidad de marca, no un ajuste de accesibilidad de sistema.
    ========================================================================= */
 
 :root {
-  /* PRUEBA tema claro — original oscuro respaldado más abajo, comentado */
-  --bg: #faf7f2;             /* fondo base — blanco cálido, no gris azulado */
-  --surface: #ffffff;        /* cards / secciones alternadas */
-  --surface-raised: #efebe3; /* un paso más marcado (barra de las capturas, inputs) */
-  --line: #dcd2c0;           /* bordes/divisores — un poco más marcados que el primer intento */
+  --bg: #faf8f3;              /* fondo base — blanco cálido, no gris azulado */
+  --surface: #ffffff;         /* cards / secciones alternadas */
+  --surface-raised: #f1ede3;  /* un paso más marcado (barra de las capturas, inputs) */
+  --line: #e4dfd2;            /* bordes/divisores — visibles pero no protagonistas */
 
-  --accent: #ff6b1a;         /* ámbar-llama — para fondos sólidos (botones, íconos) */
-  --on-accent: #170e06;      /* texto sobre fondo ámbar sólido */
-  --accent-ink: #b8460a;     /* mismo naranja, oscurecido — para texto sobre fondo claro (~5.4:1 de contraste, vs ~2.9:1 del acento base) */
+  --accent: #d9480f;          /* brasa — ámbar-llama, energía operativa/cocina */
+  --on-accent: #fff6ec;       /* texto sobre fondo brasa sólido */
+  --accent-ink: #b8380c;      /* brasa oscurecida — para texto sobre fondo claro (~5.5:1) */
 
-  --accent-2: #4a7016;       /* verde oscurecido para pasar contraste como texto sobre blanco (antes #7fae1e daba ~2.6:1) */
-  --on-accent-2: #f5f9ec;    /* texto sobre fondo verde sólido */
+  --accent-2: #2b5b6b;        /* señal — verificación / confianza / crédito, nunca operación */
+  --on-accent-2: #f2f8fa;     /* texto sobre fondo señal sólido */
 
-  --text: #1c1712;           /* texto principal — negro cálido */
-  --text-soft: #6b655c;      /* texto secundario — gris medio cálido */
+  --text: #1c1b19;            /* tinta de impresora — negro cálido */
+  --text-soft: #6b655c;       /* texto secundario — gris medio cálido */
 
   --radius: 6px;
   --radius-sm: 4px;
 
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --font-data: 'Barlow Condensed', var(--font-body); /* números y cifras */
+  --font-display: 'Big Shoulders', var(--font-body); /* titulares grandes — restringido a momentos puntuales */
 
   --shadow-sm: 0 1px 2px rgba(28, 23, 18, 0.08);
   --shadow-md: 0 10px 28px -10px rgba(28, 23, 18, 0.16);
-  --shadow-lg: 0 30px 70px -24px rgba(255, 107, 26, 0.12), 0 14px 40px -12px rgba(28, 23, 18, 0.14);
+  --shadow-lg: 0 30px 70px -24px rgba(217, 72, 15, 0.12), 0 14px 40px -12px rgba(28, 23, 18, 0.14);
 }
 
 /* :root {
@@ -77,12 +78,23 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-body);
   font-weight: 800;
-  letter-spacing: -0.02em;
   text-wrap: balance;
   margin: 0;
   color: var(--text);
+}
+h3 {
+  font-family: var(--font-body);
+  letter-spacing: -0.02em;
+}
+/* Titulares grandes: la voz "impresa" de la marca, reservada a estos
+   momentos puntuales — el resto de los encabezados (tarjetas, pasos) se
+   queda en la fuente de cuerpo, más callada. */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 0.98;
 }
 
 a { color: inherit; }
@@ -111,6 +123,12 @@ a { color: inherit; }
   box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover { box-shadow: var(--shadow-md); filter: brightness(1.08); }
+.btn-primary:disabled { cursor: default; opacity: 0.85; filter: none; }
+/* Confirmación del form de contacto: el botón mismo cambia de estado, en
+   vez de navegar a otra página. Verde señal = enviado, tono de acento
+   oscurecido = error, para no inventar un tercer color en el sistema. */
+.btn-primary.btn-success { background: var(--accent-2); color: var(--on-accent-2); }
+.btn-primary.btn-error { background: transparent; color: var(--accent-ink); border-color: var(--accent-ink); box-shadow: none; }
 .btn-ghost {
   background: transparent;
   color: var(--text);
@@ -149,12 +167,22 @@ html {
 }
 .nav {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 24px;
   font-size: 0.94rem;
   font-weight: 600;
 }
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  border-right: 1px solid var(--line);
+}
 .nav a { text-decoration: none; color: var(--text-soft); transition: color 0.15s ease; }
 .nav a:hover { color: var(--text); }
+.nav-group--producto a:hover { color: var(--accent-ink); }
+.nav-group--proyecto a:hover { color: var(--accent-2); }
 @media (max-width: 760px) { .nav { display: none; } }
 
 /* ---------------- View toggle (Producto / El proyecto) ---------------- */
@@ -183,7 +211,8 @@ html {
 .view-toggle-btn.is-active { background: var(--accent); color: var(--on-accent); }
 
 /* Qué se muestra según la vista activa — por defecto, Producto.
-   El body recibe la clase .view-proyecto al tocar "El proyecto". */
+   El body recibe la clase .view-proyecto al tocar "El proyecto". Demo no
+   tiene data-view, así que nunca se oculta. */
 body:not(.view-proyecto) [data-view="proyecto"] { display: none; }
 body.view-proyecto [data-view="producto"] { display: none; }
 
@@ -201,15 +230,12 @@ body.view-proyecto [data-view="producto"] { display: none; }
   margin: 0 0 18px;
 }
 .hero-center .eyebrow {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  margin-bottom: 22px;
+  max-width: 46ch;
+  margin: 0 auto 22px;
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  font-size: clamp(1.9rem, 7vw, 4.4rem);
   line-height: 1.02;
 }
 .hero-sub {
@@ -242,14 +268,20 @@ body.view-proyecto [data-view="producto"] { display: none; }
 }
 .device-bar {
   display: flex;
-  gap: 7px;
-  padding: 13px 16px;
+  align-items: center;
+  padding: 13px 18px;
   background: var(--surface-raised);
   border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
 }
-.device-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.device-tag {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  font-weight: 600;
+}
 .device-img { display: block; width: 100%; height: auto; }
-.device--sm { margin-bottom: 0; box-shadow: var(--shadow-md); }
 @media (max-width: 760px) {
   .device { margin-bottom: 56px; }
 }
@@ -287,17 +319,56 @@ body.view-proyecto [data-view="producto"] { display: none; }
 }
 .proof-line { margin: 0; font-size: 1.02rem; font-weight: 500; color: var(--text-soft); }
 .proof-line b { color: var(--text); }
-.proof-stats { display: flex; gap: 40px; }
-.proof-stat { display: flex; flex-direction: column; }
+.proof-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.proof-stat { display: flex; flex-direction: column; position: relative; }
 .proof-num {
-  font-family: var(--font-data);
-  font-size: 2.1rem;
+  font-family: var(--font-mono);
+  font-size: 2rem;
   line-height: 1;
   font-weight: 700;
   color: var(--accent-ink);
   font-variant-numeric: tabular-nums;
 }
-.proof-label { font-size: 0.76rem; color: var(--text-soft); font-weight: 500; }
+.proof-label { font-size: 0.76rem; color: var(--text-soft); font-weight: 500; margin-top: 2px; }
+.proof-logos-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 24px 32px;
+  border-top: 1px solid var(--line);
+}
+.proof-logos-label {
+  justify-self: start;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+.proof-logos {
+  grid-column: 2;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  flex-wrap: wrap;
+}
+@media (max-width: 760px) {
+  .proof-logos-row { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 16px; }
+  .proof-logos-label { justify-self: center; }
+  .proof-logos { grid-column: 1; gap: 40px; }
+}
+.proof-logos a { display: flex; align-items: center; }
+.proof-logos img {
+  height: 52px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+.proof-logos a:hover img { filter: grayscale(0); opacity: 1; }
 
 /* ---------------- Problema ---------------- */
 .problema { padding: 100px 0; }
@@ -322,11 +393,12 @@ body.view-proyecto [data-view="producto"] { display: none; }
 .modulo-card {
   background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   padding: 28px 26px;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
-.modulo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.modulo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); border-left-color: var(--accent); }
 .modulo-icon {
   width: 46px; height: 46px;
   border-radius: var(--radius-sm);
@@ -338,6 +410,14 @@ body.view-proyecto [data-view="producto"] { display: none; }
 .modulo-icon svg { width: 23px; height: 23px; }
 .modulo-card h3 { font-size: 1.18rem; margin-bottom: 8px; font-weight: 700; }
 .modulo-card p { margin: 0; font-size: 0.95rem; color: var(--text-soft); }
+.modulos-cierre {
+  margin: 32px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 1.02rem;
+  color: var(--text-soft);
+  max-width: 68ch;
+}
 
 /* ---------------- Showcase (capturas reales) ---------------- */
 .showcase { padding: 20px 0 108px; background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -355,19 +435,42 @@ body.view-proyecto [data-view="producto"] { display: none; }
   text-align: center;
   gap: 20px;
 }
-.phone-showcase-copy { max-width: 340px; min-height: 148px; display: flex; flex-direction: column; justify-content: center; }
+/* flex-grow, no min-height fijo: si una columna tiene más texto que la
+   otra, el grid ya estira .phone-showcase a la misma altura — este bloque
+   absorbe esa diferencia, y el teléfono de abajo arranca a la misma altura
+   en las dos columnas sin importar cuánto texto haya de cada lado. */
+.phone-showcase-copy { max-width: 340px; width: 100%; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
 .phone-showcase-copy h3 { font-size: 1.28rem; font-weight: 700; margin: 10px 0 10px; line-height: 1.3; }
 .phone-showcase-copy p { margin: 0; color: var(--text-soft); font-size: 0.96rem; }
 .phone-frame {
+  position: relative;
   flex-shrink: 0;
   width: 220px;
+  /* Alto fijo — las dos capturas fuente tienen proporciones distintas, y
+     con solo el ancho fijo terminaban de tamaños distintos y desalineadas.
+     La imagen se recorta con object-fit para llenar este marco siempre
+     igual, sea cual sea la proporción original. */
+  height: 470px;
   border-radius: 30px;
-  border: 6px solid var(--surface-raised);
+  /* Bisel oscuro real, no el tono claro de --surface-raised — sobre un
+     fondo blanco ese borde clarito prácticamente desaparecía. */
+  border: 7px solid var(--text);
   overflow: hidden;
   background: var(--bg);
   box-shadow: var(--shadow-lg);
 }
-.phone-frame-img { display: block; width: 100%; height: auto; }
+.phone-frame-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.phone-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--text);
+  z-index: 1;
+}
 @media (max-width: 760px) {
   .phone-showcase-grid { grid-template-columns: 1fr; gap: 56px; }
 }
@@ -376,15 +479,36 @@ body.view-proyecto [data-view="producto"] { display: none; }
 .como-funciona { padding: 20px 0 108px; }
 .pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
 .paso { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
-.paso-num { font-family: var(--font-data); font-size: 2.2rem; color: color-mix(in srgb, var(--text) 32%, transparent); font-weight: 700; line-height: 1; }
+.paso-num { font-family: var(--font-mono); font-size: 1.9rem; color: color-mix(in srgb, var(--text) 32%, transparent); font-weight: 600; line-height: 1; }
 .paso h3 { font-size: 1.1rem; margin-bottom: 6px; font-weight: 700; }
 .paso p { margin: 0; color: var(--text-soft); font-size: 0.96rem; max-width: 62ch; }
+/* El paso 5 cierra la secuencia operativa y la conecta con el crédito —
+   se destaca del resto, en el color señal, no en la numeración neutra. */
+.paso--cierre {
+  margin-top: 6px;
+  padding: 22px 24px;
+  background: color-mix(in srgb, var(--accent-2) 6%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent-2) 26%, var(--line));
+  border-radius: var(--radius);
+}
+.paso--cierre .paso-num { color: var(--accent-2); }
+.paso--cierre h3 { color: var(--accent-2); }
 
 /* ---------------- Visión (El proyecto) ---------------- */
 .vision { padding: 100px 0 20px; }
 .vision-inner { max-width: 800px; }
 .vision h2 { font-size: clamp(1.7rem, 2.8vw, 2.3rem); line-height: 1.3; font-weight: 700; }
 .vision-sub { margin-top: 20px; color: var(--text-soft); font-size: 1.08rem; }
+
+/* La firma de la página: el ciclo que describe el párrafo de arriba,
+   dibujado — no un ícono suelto. Operación y Crecimiento en ámbar (el
+   lado cocina), Datos y Capital en señal (el lado financiero); la vuelta
+   punteada de abajo es el "se refuerza solo". Único lugar del sitio con
+   este tratamiento. */
+.ciclo { margin: 40px 0; overflow-x: auto; }
+.ciclo svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.ciclo-num { font-family: var(--font-mono); font-size: 15px; font-weight: 700; fill: var(--text); }
+.ciclo-label { font-family: var(--font-body); font-size: 14px; font-weight: 600; fill: var(--text-soft); }
 
 /* ---------------- Roadmap timeline ---------------- */
 .roadmap { padding: 20px 0 108px; }
@@ -406,6 +530,23 @@ body.view-proyecto [data-view="producto"] { display: none; }
 .tl-marker--now .tl-dot { border-color: var(--accent); background: var(--accent); }
 .tl-marker--next .tl-dot { border-color: var(--text-soft); }
 .tl-marker--later .tl-dot { border-color: var(--line); }
+
+/* Etapa 6 (Capital de trabajo) es el destino de toda la cinta — no un
+   punto más. Un anillo de scoring, en el color señal, marca que ahí es
+   donde el historial operativo se convierte en algo que un prestamista
+   puede leer. */
+.tl-marker--score { padding-top: 0; }
+.tl-score-ring { width: 28px; height: 28px; transform: rotate(-90deg); }
+.tl-score-ring-track { fill: none; stroke: var(--line); stroke-width: 2.5; }
+.tl-score-ring-fill {
+  fill: none;
+  stroke: var(--accent-2);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 69.1;
+  stroke-dashoffset: 20;
+}
+.tl-chip--score { background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--accent-2); }
 .tl-chip {
   display: inline-block;
   font-family: var(--font-mono);
@@ -425,7 +566,24 @@ body.view-proyecto [data-view="producto"] { display: none; }
 .tl-content p { margin: 0; color: var(--text-soft); font-size: 0.96rem; max-width: 62ch; }
 
 /* ---------------- Demo ---------------- */
-.demo { padding: 20px 0 112px; }
+/* Única sección oscura de todo el sitio, a propósito: es la conversión
+   real (el inversor prueba el producto), no otro bloque de texto — el
+   contraste fuerte le dice "pará acá" en vez de dejarlo pasar de largo.
+   Redefine los tokens de color solo dentro de esta sección, así el resto
+   de las reglas (.demo-card, h2, .demo-sub, etc.) no necesitan reescribirse
+   una por una. */
+.demo {
+  --bg: #16140f;
+  --surface: #221e17;
+  --surface-raised: #2c2619;
+  --line: #3d3527;
+  --text: #f7f4ee;
+  --text-soft: #b6ad9c;
+  --accent-ink: #ff8a4d;
+  background: var(--bg);
+  color: var(--text);
+  padding: 96px 0;
+}
 .demo-sub { color: var(--text-soft); font-size: 1.05rem; margin: -30px 0 44px; max-width: 56ch; }
 .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 @media (max-width: 760px) { .demo-grid { grid-template-columns: 1fr; } }
@@ -438,13 +596,52 @@ body.view-proyecto [data-view="producto"] { display: none; }
   flex-direction: column;
   gap: 16px;
 }
+.demo-card-icon {
+  width: 46px; height: 46px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--on-accent);
+  display: flex; align-items: center; justify-content: center;
+}
+.demo-card-icon svg { width: 23px; height: 23px; }
 .demo-card h3 { font-size: 1.32rem; font-weight: 700; }
 .demo-card p { margin: 0; color: var(--text-soft); font-size: 0.98rem; flex-grow: 1; }
 .demo-card .btn { align-self: flex-start; }
+.demo-contact {
+  max-width: 620px;
+  margin: 56px auto 0;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.demo-contact-lead { margin: 0 0 28px; color: var(--text-soft); font-size: 1rem; }
+.contact-form { display: grid; gap: 16px; text-align: left; }
+.contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .contact-form-row { grid-template-columns: 1fr; } }
+.contact-form .btn { justify-self: center; margin-top: 4px; }
+
+.field { display: grid; gap: 6px; }
+.field label { font-size: 0.84rem; font-weight: 700; color: var(--text-soft); }
+.field .opt { font-weight: 500; color: var(--text-soft); }
+.field input, .field select, .field textarea {
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--surface-raised);
+  color: var(--text);
+  outline: none;
+  resize: vertical;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--text-soft); opacity: 0.7; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
 
 /* ---------------- Footer ---------------- */
 .site-footer { border-top: 1px solid var(--line); padding: 52px 0 30px; }
 .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 34px; }
+.footer-brand { display: flex; align-items: center; gap: 8px; }
+.footer-mark { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; }
 .brand--footer { font-size: 1.3rem; font-weight: 800; margin: 0; }
 .footer-tagline { margin: 4px 0 0; color: var(--text-soft); font-size: 0.9rem; }
 .footer-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
