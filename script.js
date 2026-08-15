@@ -1,6 +1,27 @@
 // Año del footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Menú hamburguesa (mobile): abre/cierra el panel de nav, se cierra solo al
+// elegir un link o al tocar afuera.
+const navToggle = document.getElementById('nav-toggle');
+const siteNav = document.getElementById('site-nav');
+if (navToggle && siteNav) {
+  const closeNav = () => {
+    navToggle.setAttribute('aria-expanded', 'false');
+    siteNav.classList.remove('is-open');
+  };
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  siteNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (!siteNav.classList.contains('is-open')) return;
+    if (siteNav.contains(e.target) || navToggle.contains(e.target)) return;
+    closeNav();
+  });
+}
+
 // Toggle Producto / El proyecto: oculta/muestra secciones marcadas con
 // data-view en vez de navegar a otra página. Los links con #ancla a una
 // sección de la otra vista cambian de vista antes de hacer scroll, así

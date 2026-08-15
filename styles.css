@@ -183,7 +183,67 @@ html {
 .nav a:hover { color: var(--text); }
 .nav-group--producto a:hover { color: var(--accent-ink); }
 .nav-group--proyecto a:hover { color: var(--accent-2); }
-@media (max-width: 760px) { .nav { display: none; } }
+
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .nav-toggle { display: flex; }
+  .nav {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    box-shadow: none;
+    transition: max-height 0.25s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  }
+  .nav.is-open { max-height: 420px; opacity: 1; padding: 8px 24px 20px; box-shadow: var(--shadow-md); }
+  .nav-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 0 16px 14px;
+    border-right: none;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-group--producto { border-left-color: var(--accent); }
+  .nav-group--proyecto { border-left-color: var(--accent-2); }
+  .nav > a { padding: 16px 0; }
+}
 
 /* ---------------- View toggle (Producto / El proyecto) ---------------- */
 .view-toggle {
@@ -505,8 +565,8 @@ body.view-proyecto [data-view="producto"] { display: none; }
    lado cocina), Datos y Capital en señal (el lado financiero); la vuelta
    punteada de abajo es el "se refuerza solo". Único lugar del sitio con
    este tratamiento. */
-.ciclo { margin: 40px 0; overflow-x: auto; }
-.ciclo svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.ciclo { margin: 40px 0; }
+.ciclo svg { display: block; width: 100%; height: auto; }
 .ciclo-num { font-family: var(--font-mono); font-size: 15px; font-weight: 700; fill: var(--text); }
 .ciclo-label { font-family: var(--font-body); font-size: 14px; font-weight: 600; fill: var(--text-soft); }
 
